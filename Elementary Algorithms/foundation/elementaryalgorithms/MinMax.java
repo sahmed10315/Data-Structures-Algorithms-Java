@@ -1,4 +1,4 @@
-package foundation.elementaryalgo;
+package foundation.elementaryalgorithms;
 
 /* 
  * Find minimum and maximum number in an array 
