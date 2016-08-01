@@ -1,7 +1,7 @@
 package foundation.elementaryalgo;
 
 /* 
- * Find minimum and maximum in an array 
+ * Find minimum and maximum number in an array 
  * Time complexity = O(N) 
  * */
 public class MinMax {
