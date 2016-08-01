@@ -1,5 +1,8 @@
 package math.elementaryalgorithms;
 
+/* Prints power of 2 upto N 
+ * Runtime complexity: O(logN)
+ * */
 public class Powersof2 {
 
 	public static void main(String[] args) {

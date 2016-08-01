@@ -1,9 +1,9 @@
 package math.elementaryalgorithms;
 
 /* Fibonacci implemented iteratively, recursively and through memoization 
- * Run time of Iterative: O(N)
- * Run time of Recursive: O(2^N)
- * Run time of Memoization: O(N)
+ * Run time, space time of Iterative: O(N), O(1)
+ * Run time, space time of Recursive: O(2^N), O(N)
+ * Run time, space time of Memoization: O(N), O(N)
  * */
 public class Fibonacci {
 

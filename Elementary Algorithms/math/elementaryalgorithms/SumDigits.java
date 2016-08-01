@@ -1,5 +1,8 @@
 package math.elementaryalgorithms;
 
+/* Sum digits in a number 
+ * Runtime Complexity: O(logN). Runtime will be the no of digits in the number. A number with d digits can have a value up to 10^d. If n = 10^d, then d = log n. 
+ * */
 public class SumDigits {
 
 	public static int sumDigits(int n) {

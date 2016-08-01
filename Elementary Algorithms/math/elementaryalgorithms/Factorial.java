@@ -1,8 +1,9 @@
 package math.elementaryalgorithms;
 
 /* Computers factorial recursively and iteratively
- * 
- *  */
+ * Time, Space complexity of recursive: O(N), O(N)
+ * Time, Space complexity of iterative: O(N), O(1) 
+ */
 
 public class Factorial {
 	public static void main(String [] args) {

@@ -1,5 +1,9 @@
 package foundation.elementaryalgorithms;
 
+/* Linear search time and space complexity: O(N) , O(1)
+ * Binary search recursive time and space complexity: O(logN), O(logN)
+ * Binary search iterative time and space complexity: O(logN), O(1) 
+ */
 public class Search {
 
 	public static void main(String [] args) {

@@ -1,5 +1,8 @@
 package math.elementaryalgorithms;
 
+/* Product of a and b without multiplication
+ * Runtime complexity : O(b) 
+ */
 public class ProductWithoutMult {
 	
 	static int product(int a, int b) { 

@@ -1,42 +1,47 @@
 package fundamental.ADT;
-
+/* Array Abstract data type implementation 
+ * 					Access	Search	Insertion	Deletion
+ * Time complexity: O(1)	O(n)	O(1)	    O(n)
+ * 
+ * Space complexity: O(N)
+ * */
 class Array {
 	private long[] array;
-	private int nElems;
+	private int size;
 
 	public Array(int max) {
 		array = new long[max];
-		nElems = 0;
+		size = 0;
 	}
 
 	/* Linear Search */
 	public boolean find(long searchKey) {
 		int j;
-		for (j = 0; j < nElems; j++)
+		for (j = 0; j < size; j++)
 			if (array[j] == searchKey)
 				return true;
 		return false;
 	}
 
 	public void insert(long value) {
-		array[nElems] = value;
-		nElems++;
+		array[size] = value;
+		size++;
 	}
 
 	public boolean delete(long value) {
 		int j;
-		for (j = 0; j < nElems; j++)
+		for (j = 0; j < size; j++)
 			if (value == array[j]) {
-				for (int k = j; k < nElems; k++)
+				for (int k = j; k < size; k++)
 					array[k] = array[k + 1];
-				nElems--;
+				size--;
 				return true;
 			}
 		return false;
 	}
 
 	public void display() {
-		for (int j = 0; j < nElems; j++)
+		for (int j = 0; j < size; j++)
 			System.out.print(array[j] + " ");
 		System.out.println("");
 	}
@@ -45,9 +50,7 @@ class Array {
 public class Arrays {
 
 	public static void main(String[] args) {
-		int maxSize = 100;
-		Array arr;
-		arr = new Array(maxSize);
+		Array arr = new Array(100);
 
 		arr.insert(77);
 		arr.insert(99);

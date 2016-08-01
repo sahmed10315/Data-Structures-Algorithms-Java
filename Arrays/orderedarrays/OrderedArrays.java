@@ -1,5 +1,10 @@
 package orderedarrays;
-
+/* Ordered Array Abstract data type implementation 
+ * 					Access	Search	Insertion	Deletion
+ * Time complexity: O(1)	O(LogN)	O(N)	    O(n)
+ * 
+ * Space complexity: O(N)
+ * */
 class OrderedArray {
 
 	private long[] array;  

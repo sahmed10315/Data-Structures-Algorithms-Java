@@ -1,5 +1,8 @@
 package math.elementaryalgorithms;
 
+/* Computes a % b 
+ * Runtime Complexity: O(1)
+ * */
 public class Modulus {
 	public static void main(String[] args) {
 		System.out.println(modulus(44, 3));

@@ -1,5 +1,9 @@
 package math.elementaryalgorithms;
 
+/* Computes square root through simple method and binary search 
+ * Runtime complexity of binary search method : O(logN)
+ * Runtime complexity of simple method: O(sqrt(N))
+ * */
 public class SquareRoot {
 	
 	public static void main(String [] args) {

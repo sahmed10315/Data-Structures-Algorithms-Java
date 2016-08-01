@@ -1,5 +1,8 @@
 package math.elementaryalgorithms;
 
+/* Computes a^b 
+ * Time complexity: O(b)
+ * */
 public class Exponent {
 
 	public static void main(String []args) {
