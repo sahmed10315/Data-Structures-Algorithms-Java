@@ -1,4 +1,4 @@
-package fundamental.orderedarrays;
+package orderedarrays;
 
 class OrderedArray {
 
