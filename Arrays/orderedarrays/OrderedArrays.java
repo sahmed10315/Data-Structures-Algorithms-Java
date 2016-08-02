@@ -8,22 +8,22 @@ package orderedarrays;
 class OrderedArray {
 
 	private long[] array;  
-	private int nElems;  
+	private int size;  
 
 	public OrderedArray(int max)  
 	{
 		array = new long[max];  
-		nElems = 0;
+		size = 0;
 	}
  
 	public int size() {
-		return nElems;
+		return size;
 	}
  
 	/* Binary Search */
 	public int find(long searchKey) {
 		int low = 0;
-		int high = nElems - 1;
+		int high = size - 1;
 		int mid;
 
 		while (low <= high) {
@@ -42,14 +42,14 @@ class OrderedArray {
 	public void insert(long value) 
 	{
 		int j;
-		for (j = 0; j < nElems; j++) // find where it goes through linear search
+		for (j = 0; j < size; j++) // find where it goes through linear search
 			if (array[j] > value)
 				break;
 		
-		for (int k = nElems; k > j; k--) // move bigger ones up
+		for (int k = size; k > j; k--) // move bigger ones up
 			array[k] = array[k - 1];
 		array[j] = value; 
-		nElems++; 
+		size++; 
 	}  
 
 	public boolean delete(long value) {
@@ -58,16 +58,16 @@ class OrderedArray {
 			return false;
 		else 
 		{
-			for (int k = j; k < nElems; k++) // move bigger ones down
+			for (int k = j; k < size; k++) // move bigger ones down
 				array[k] = array[k + 1];
-			nElems--;
+			size--;
 			return true;
 		}
 	}
 
 	public void display() 
 	{
-		for (int j = 0; j < nElems; j++) 
+		for (int j = 0; j < size; j++) 
 			System.out.print(array[j] + " "); 
 		System.out.println("");
 	}

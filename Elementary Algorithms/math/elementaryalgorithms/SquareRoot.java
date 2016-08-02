@@ -7,12 +7,12 @@ package math.elementaryalgorithms;
 public class SquareRoot {
 	
 	public static void main(String [] args) {
-		System.out.println(squrerootSimple(64));
+		System.out.println(squarerootSimple(64));
 		System.out.println(squareRootBinSearch(64));
 
 	}
 	
-	static int squrerootSimple(int n ) {
+	static int squarerootSimple(int n ) {
 		for (int guess = 1; guess * guess <= n ; guess++)
 			if (guess * guess == n)
 				return guess;

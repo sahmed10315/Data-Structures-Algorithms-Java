@@ -23,8 +23,8 @@ public class Factorial {
 	static int isFactorialIteratively(int n) {
 		int factorial = 1;
 		
-		for (int c = 1 ; c <= n ; c++)
-			factorial = factorial*c;
+		for (int i = 1 ; i <= n ; i++)
+			factorial = factorial*i;
 		
 		return factorial;
 	}
