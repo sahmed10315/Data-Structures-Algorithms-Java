@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="Elementary Algorithms"/>
+	<classpathentry kind="src" path="Arrays"/>
+	<classpathentry kind="src" path="Sorting"/>
+	<classpathentry kind="src" path="Stacks"/>
+	<classpathentry kind="src" path="Queues"/>
+	<classpathentry kind="src" path="Linked Lists"/>
+	<classpathentry kind="src" path="Binary Trees"/>
+	<classpathentry kind="src" path="Binary Search Trees"/>
+	<classpathentry kind="src" path="Hash Tables"/>
+	<classpathentry kind="src" path="Heaps"/>
+	<classpathentry kind="src" path="Graphs"/>
+	<classpathentry kind="src" path="Weighted Graphs"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
