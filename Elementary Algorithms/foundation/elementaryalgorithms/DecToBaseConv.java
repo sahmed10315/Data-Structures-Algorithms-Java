@@ -4,7 +4,7 @@ public class DecToBaseConv {
 
 	static String convFrmDecToBase(int num, int base) {
  
-	    String res = "";
+	    StringBuilder res = new StringBuilder();
 	    int rem;
 	    // Convert input number is given base by repeatedly
 	    // dividing it by base and taking remainder
@@ -14,26 +14,26 @@ public class DecToBaseConv {
 	    	if(base == 16)
 	    	{
 	    		if (rem == 10)
-	    			res += 'A';
+	    			res.append('A');
 	    		else if(rem == 11)
-	    			res += 'B';
+	    			res.append('B');
 	    		else if(rem == 12)
-	    			res += 'C';
+	    			res.append('C');
 	    		else if(rem == 13)
-	    			res += 'D';
+	    			res.append('D');
 	    		else if(rem == 14)
-	    			res += 'E';
+	    			res.append('E');
 	    		else if(rem == 15)
-	    			res += 'F';
+	    			res.append('F');
 	    		else
-		    		res += rem;
+		    		res.append(rem);
 	    	} else
-	    		res += rem;
+	    		res.append(rem);
 	    	
 	        num /= base;
 	    } 
 	    // Reverse the result
-	    return new StringBuffer(res).reverse().toString();
+	    return res.reverse().toString();
 	}
 	
 	public static void main(String [] args) {
