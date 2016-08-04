@@ -2,7 +2,7 @@ package simplesorts;
 
 /* 
  * Selection Sort 
- * Worst and Average Case Time Complexity: O(n^2) There are N swaps maximum and N^2 comparisions for worst case. Preferred if swap time is costly.
+ * Worst and Average Case Time Complexity: O(n^2) There are N swaps maximum and N^2 comparisons for worst case. Preferred if swap time is costly.
  * Best Case Time Complexity: O(n^2).
  * Auxiliary Space: O(1)
  * Sorting In Place: Yes

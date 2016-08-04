@@ -2,12 +2,13 @@ package simplesorts;
 
 /* 
  * Insertion Sort 
- * Worst and Average Case Time Complexity: O(n^2) comparisions and swaps. Happens when elements are sorted in reverse order.
- * Best Case Time Complexity: O(n) comparisions and O(1) swaps. Best case occurs when array is already sorted. It can also 
+ * Worst and Average Case Time Complexity: O(n^2) comparisons and swaps. Happens when elements are sorted in reverse order.
+ * Best Case Time Complexity: O(n) comparisons and O(1) swaps. Best case occurs when array is already sorted. It can also 
  * be useful when input array is almost sorted, only few elements are misplaced in complete big array.
  * Auxiliary Space: O(1)
  * Sorting In Place: Yes
  * Stable: Yes
+ * 
 */
 public class InsertionSort {
 
