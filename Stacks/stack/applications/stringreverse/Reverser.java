@@ -1,4 +1,4 @@
-package stringreverse.stack;
+package stack.applications.stringreverse;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,8 +7,8 @@ import java.io.InputStreamReader;
 import arrays.stack.implementation.Stack;
 
 class Reverse {
-	private String input; // input string
-	private String output; // output string 
+	private String input;  
+	private String output;  
 
 	public Reverse(String in) 
 	{
@@ -17,17 +17,17 @@ class Reverse {
  
 	public String reverse() 
 	{
-		int stackSize = input.length(); // get max stack size
-		Stack theStack = new Stack(stackSize); // make stack
+		int stackSize = input.length(); 
+		Stack theStack = new Stack(stackSize); 
 
 		for (int j = 0; j < input.length(); j++) {
-			char ch = input.charAt(j); // get a char from input
-			theStack.push(ch); // push it
+			char ch = input.charAt(j);  
+			theStack.push(ch);  
 		}
 		output = "";
 		while (!theStack.isEmpty()) {
-			char ch = (char) theStack.pop(); // pop a char,
-			output = output + ch; // append to output
+			char ch = (char) theStack.pop(); 
+			output = output + ch;  
 		}
 		return output;
 	}  
@@ -41,8 +41,7 @@ public class Reverser {
 			System.out.flush();
 			input = getString();  
 			if (input.equals(""))  
-				break;
-			// make a Reverser
+				break; 
 			Reverse theReverser = new Reverse(input);
 			output = theReverser.reverse(); 
 			System.out.println("Reversed: " + output);

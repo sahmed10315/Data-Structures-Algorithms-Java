@@ -1,4 +1,4 @@
-package bracketchecker.stack;
+package stack.applications.bracketchecker;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -36,7 +36,7 @@ class BracketCheck {
 					char chx = (char) theStack.pop(); // pop and check
 					if ((ch == '}' && chx != '{') || (ch == ']' && chx != '[') || (ch == ')' && chx != '('))
 						System.out.println("Error: " + ch + " at " + j);
-				} else // prematurely empty
+				} else 
 					System.out.println("Error: " + ch + " at " + j);
 				break;
 			default:  
