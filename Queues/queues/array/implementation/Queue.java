@@ -1,4 +1,4 @@
-package queues;
+package queues.array.implementation;
 
 class QueueADT {
 	private int maxSize;
