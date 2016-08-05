@@ -1,4 +1,4 @@
-package stack.implementation.arrays;
+package implementation.arrays;
 
 public class Stack {
 	private int maxSize; // size of stack array

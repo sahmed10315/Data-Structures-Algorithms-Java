@@ -1,4 +1,4 @@
-package dequeues.array.implementation;
+package dequeues.implementation.array;
 
 public class Dequeue {
 	private long[] queArray;

@@ -1,4 +1,4 @@
-package priorityq.array.implementation;
+package priorityq.implementation.array;
 
 class PriorityQ {
 	private int maxSize;
