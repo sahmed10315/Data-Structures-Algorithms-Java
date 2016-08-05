@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import arrays.stack.implementation.Stack;
+import stack.implementation.arrays.Stack;
 
 class Reverse {
 	private String input;  
