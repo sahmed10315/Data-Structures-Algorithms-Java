@@ -4,15 +4,14 @@ public class Stack {
 	private int maxSize; // size of stack array
 	private long[] stackArray;
 	private int top; // top of stack
- 
-	public Stack(int s)
-	{
+
+	public Stack(int s) {
 		maxSize = s; // set array size
 		stackArray = new long[maxSize]; // create array
 		top = -1; // no items yet
 	}
 
- 	public void push(long j) // put item on top of stack
+	public void push(long j) // put item on top of stack
 	{
 		stackArray[++top] = j; // increment top, insert item
 	}
@@ -36,8 +35,22 @@ public class Stack {
 	{
 		return (top == maxSize - 1);
 	}
-	 
-}  
+
+	public char peekN(int n) // return item at index n
+	{
+		return (char) stackArray[n];
+	}
+
+	public void displayStack(String s) {
+		System.out.print(s);
+		System.out.print("Stack (bottom-->top): ");
+		for (int j = 0; j < top + 1; j++) {
+			System.out.print(peekN(j));
+			System.out.print(' ');
+		}
+		System.out.println("");
+	}
+}
 
 class StackApp {
 	public static void main(String[] args) {
@@ -47,12 +60,11 @@ class StackApp {
 		theStack.push(60);
 		theStack.push(80);
 
-		while (!theStack.isEmpty())  
-		{  
+		while (!theStack.isEmpty()) {
 			long value = theStack.pop();
 			System.out.print(value); // display it
 			System.out.print(" ");
-		}  
+		}
 		System.out.println("");
-	}  
-}  
+	}
+}

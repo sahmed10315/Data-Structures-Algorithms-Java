@@ -1,4 +1,4 @@
-package stack.applications.bracketchecker;
+package stack.applications.balancedparanthesis;
 
 import java.io.BufferedReader;
 import java.io.IOException;
