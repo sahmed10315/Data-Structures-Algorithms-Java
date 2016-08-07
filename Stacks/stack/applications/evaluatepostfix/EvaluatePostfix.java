@@ -1,14 +1,17 @@
 package stack.applications.evaluatepostfix;
 
-//postfix.java
-//parses postfix arithmetic expressions
-//to run this program: C>java PostfixApp
-import java.io.*; // for I/O 
+/* The postfix notation(RPN) is used to represent algebraic expressions. The expressions written in postfix form are evaluated 
+ * faster compared to infix notation as parenthesis are not required in postfix. This program evaluates postfix arithmetic expressions.
+ * 
+ * Time complexity: O(N)
+ */
+
+import java.io.*;
 
 import implementation.arrays.Stack;
 
 class ParsePost {
-	private Stack theStack;
+	private Stack<Integer> theStack;
 	private String input;
 
 	public ParsePost(String s) {
@@ -16,17 +19,16 @@ class ParsePost {
 	}
 
 	public int doParse() {
-		theStack = new Stack(20); // make new stack
+		theStack = new Stack<Integer>(20);
 		char ch;
 		int j;
 		int num1, num2, interAns;
 
-		for (j = 0; j < input.length(); j++) // for each char,
-		{
-			ch = input.charAt(j); // read from input
-			theStack.displayStack("" + ch + " "); // *diagnostic*
-			if (ch >= '0' && ch <= '9') // if it's a number
-				theStack.push((int) (ch - '0')); // push it
+		for (j = 0; j < input.length(); j++) {
+			ch = input.charAt(j);
+
+			if (ch >= '0' && ch <= '9')
+				theStack.push(ch - '0');
 			else // it's an operator
 			{
 				num2 = (int) theStack.pop(); // pop operands
@@ -47,16 +49,16 @@ class ParsePost {
 					break;
 				default:
 					interAns = 0;
-				} // end switch
+				}
 				theStack.push(interAns); // push result
-			} // end else
-		} // end for
+			}
+		}
 		interAns = (int) theStack.pop(); // get answer
 		return interAns;
 	}
 }
 
-class PostfixApp {
+public class EvaluatePostfix {
 	public static void main(String[] args) throws IOException {
 		String input;
 		int output;
@@ -64,14 +66,13 @@ class PostfixApp {
 		while (true) {
 			System.out.print("Enter postfix: ");
 			System.out.flush();
-			input = getString(); // read a string from kbd
-			if (input.equals("")) // quit if [Enter]
+			input = getString();
+			if (input.equals(""))
 				break;
-			// make a parser
 			ParsePost aParser = new ParsePost(input);
 			output = aParser.doParse(); // do the evaluation
 			System.out.println("Evaluates to " + output);
-		} // end while
+		}
 	}
 
 	public static String getString() throws IOException {

@@ -1,5 +1,9 @@
 package stack.applications.stringreverse;
 
+/* Reverse a string using stack 
+ * Time Complexity: O(n) where n is number of characters in stack.
+ * Auxiliary Space: O(n) for stack.
+ * */
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -18,7 +22,7 @@ class Reverse {
 	public String reverse() 
 	{
 		int stackSize = input.length(); 
-		Stack theStack = new Stack(stackSize); 
+		Stack<Character> theStack = new Stack<>(stackSize); 
 
 		for (int j = 0; j < input.length(); j++) {
 			char ch = input.charAt(j);  

@@ -1,5 +1,9 @@
 package stack.applications.balancedparanthesis;
 
+/* Program to check balanced parenthesis in an expression 
+ * Time Complexity: O(n)
+ * Auxiliary Space: O(n) for stack.
+ * */
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,46 +11,43 @@ import java.io.InputStreamReader;
 import implementation.arrays.Stack;
 
 class BracketCheck {
-	private String input;  
+	private String input;
 
-	public BracketCheck(String in)  
-	{
+	public BracketCheck(String in) {
 		input = in;
 	}
- 
-	public void check() {
-		int stackSize = input.length();  
-		Stack theStack = new Stack(stackSize);  
 
-		for (int j = 0; j < input.length(); j++)  
-		{
-			char ch = input.charAt(j); 
+	public void check() {
+		int stackSize = input.length();
+		Stack<Character> theStack = new Stack<>(stackSize);
+
+		for (int j = 0; j < input.length(); j++) {
+			char ch = input.charAt(j);
 			switch (ch) {
 			case '{': // opening symbols
 			case '[':
 			case '(':
-				theStack.push(ch);  
+				theStack.push(ch);
 				break;
 
 			case '}': // closing symbols
 			case ']':
 			case ')':
-				if (!theStack.isEmpty())  
-				{
+				if (!theStack.isEmpty()) {
 					char chx = (char) theStack.pop(); // pop and check
 					if ((ch == '}' && chx != '{') || (ch == ']' && chx != '[') || (ch == ')' && chx != '('))
 						System.out.println("Error: " + ch + " at " + j);
-				} else 
+				} else
 					System.out.println("Error: " + ch + " at " + j);
 				break;
-			default:  
+			default:
 				break;
-			} 
-		}  
+			}
+		}
 		if (!theStack.isEmpty())
 			System.out.println("Error: missing right delimiter");
-	}  
-}  
+	}
+}
 
 public class BracketChecker {
 	public static void main(String[] args) throws IOException {
@@ -54,18 +55,18 @@ public class BracketChecker {
 		while (true) {
 			System.out.print("Enter string containing delimiters: ");
 			System.out.flush();
-			input = getString();  
+			input = getString();
 			if (input.equals("")) // quit if [Enter]
-				break; 
+				break;
 			BracketCheck theChecker = new BracketCheck(input);
 			theChecker.check(); // check brackets
-		}  
-	} 
+		}
+	}
 
 	public static String getString() throws IOException {
 		InputStreamReader isr = new InputStreamReader(System.in);
 		BufferedReader br = new BufferedReader(isr);
 		String s = br.readLine();
 		return s;
-	} 
-} 
+	}
+}

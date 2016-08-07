@@ -1,64 +1,63 @@
 package queues.implementation.array.complex;
 
-public class Queue {
+import java.util.EmptyStackException;
+/* Array implementation of queue without keeping track of current no of items. This approach makes the size, isFull and empty method complicated.
+ *
+ * Insertion/Deletion: O(1), O(1)
+ * Search/Access O(n), O(n)	
+ * Space Complexity: O(n)
+ */
+public class Queue<T> {
 	private int maxSize;
-	private long[] queArray;
+	private T[] queArray;
 	private int front;
 	private int rear;
-
-	// --------------------------------------------------------------
+ 
+	@SuppressWarnings("unchecked")
 	public Queue(int s)
-	// constructor
 	{
 		maxSize = s + 1;
 		// array is 1 cell larger
-		queArray = new long[maxSize]; // than requested
+		queArray = (T[])new Object[maxSize]; // than requested
 		front = 0;
 		rear = -1;
 	}
-
-	// --------------------------------------------------------------
-	public void insert(long j) // put item at rear of queue
+ 
+	public void insert(T j) // put item at rear of queue
 	{
 		if (rear == maxSize - 1)
 			rear = -1;
 		queArray[++rear] = j;
 	}
-
-	// --------------------------------------------------------------
-	public long remove()
-	// take item from front of queue
+ 
+	public T remove() 
 	{
-		long temp = queArray[front++];
+		if(isEmpty())
+			throw new EmptyStackException();
+		T temp = queArray[front++];
 		if (front == maxSize)
 			front = 0;
 		return temp;
 	}
-
-	// --------------------------------------------------------------
-	public long peek()
-	// peek at front of queue
+ 
+	public T peek() 
 	{
+		if(isEmpty())
+			throw new EmptyStackException();
 		return queArray[front];
 	}
-
-	// --------------------------------------------------------------
-	public boolean isEmpty()
-	// true if queue is empty
+ 
+	public boolean isEmpty() 
 	{
 		return (rear + 1 == front || (front + maxSize - 1 == rear));
 	}
-
-	// --------------------------------------------------------------
+ 
 	public boolean isFull()
-	// true if queue is full
 	{
 		return (rear + 2 == front || (front + maxSize - 2 == rear));
 	}
-
-	// --------------------------------------------------------------
-	public int size()
-	// (assumes queue not empty)
+ 
+	public int size() 
 	{
 		if (rear >= front)
 			// contiguous sequence
@@ -66,6 +65,5 @@ public class Queue {
 		else
 			// broken sequence
 			return (maxSize - front) + (rear + 1);
-	}
-	// --------------------------------------------------------------
+	} 
 }

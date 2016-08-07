@@ -1,57 +1,56 @@
 package stack.applications.infixtopostfix;
+ 
+/* Converts infix arithmetic expressions to postfix */ 
 
-//infix.java
-//converts infix arithmetic expressions to postfix
-//to run this program: C>java InfixApp
-import java.io.*; // for I/O 
+import java.io.*; 
 
 import implementation.arrays.Stack;
 
-class InfixToPostfix // infix to postfix conversion
+class InfixToPostfix
 {
-	private Stack theStack;
+	private Stack<Character> theStack;
 	private String input;
 	private String output = "";
 
 	public InfixToPostfix(String in) {
 		input = in;
 		int stackSize = input.length();
-		theStack = new Stack(stackSize);
+		theStack = new Stack<>(stackSize);
 	}
 
-	public String doTrans() // do translation to postfix
+	public String doTrans()
 	{
-		for (int j = 0; j < input.length(); j++) // for each char
+		for (int j = 0; j < input.length(); j++)  
 		{
-			char ch = input.charAt(j); // get it
-			theStack.displayStack("For " + ch + " "); // *diagnostic*
+			char ch = input.charAt(j);  
+			 
 			switch (ch) {
-			case '+': // it's + or -
+			case '+': 
 			case '-':
 				gotOper(ch, 1); // go pop operators
 				break; // (precedence 1)
-			case '*': // it's * or /
+			case '*':  
 			case '/':
-				gotOper(ch, 2); // go pop operators
+				gotOper(ch, 2); 
 				break; // (precedence 2)
-			case '(': // it's a left paren
-				theStack.push(ch); // push it
+			case '(':  
+				theStack.push(ch);  
 				break;
-			case ')': // it's a right paren
+			case ')':  
 				gotParen(ch); // go pop operators
 				break;
 			default: // must be an operand
 				output = output + ch; // write it to output
 				break;
-			} // end switch
-		} // end for
+			}  
+		}  
 		while (!theStack.isEmpty()) // pop remaining opers
 		{
 			theStack.displayStack("While "); // *diagnostic*
 			output = output + theStack.pop(); // write to output
 		}
 		theStack.displayStack("End   "); // *diagnostic*
-		return output; // return postfix
+		return output;
 	}
 
 	public void gotOper(char opThis, int prec1) { // got operator from input
@@ -75,7 +74,7 @@ class InfixToPostfix // infix to postfix conversion
 					break;
 				} else // prec of new not less
 					output = output + opTop; // than prec of old
-			} // end else (it's an operator)
+			}
 		}  
 		theStack.push(opThis); // push new operator
 	}
@@ -87,7 +86,7 @@ class InfixToPostfix // infix to postfix conversion
 				break; // we're done
 			else // if popped operator
 				output = output + chx; // output it
-		} // end while
+		}  
 	}
 }
 
@@ -97,10 +96,9 @@ public class InfixToPostfixConv {
 		while (true) {
 			System.out.print("Enter infix: ");
 			System.out.flush();
-			input = getString(); // read a string from kbd
-			if (input.equals("")) // quit if [Enter]
-				break;
-			// make a translator
+			input = getString(); 
+			if (input.equals(""))  
+				break; 
 			InfixToPostfix theTrans = new InfixToPostfix(input);
 			output = theTrans.doTrans(); // do the translation
 			System.out.println("Postfix is " + output + '\n');

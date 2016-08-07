@@ -1,5 +1,11 @@
 package dequeues.implementation.array;
 
+/* 
+ * Deque or Double Ended Queue is a generalized version of Queue data structure that allows insert and delete at both ends.
+ * 
+ * If we restrict to insertLeft() and removeLeft(), the deque acts like a stack. If we restrict insertLeft() and
+ * removeRight(), it acts like a queue.
+ */
 public class Dequeue {
 	private long[] queArray;
 	private int maxSize;
