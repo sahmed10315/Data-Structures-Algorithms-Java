@@ -5,6 +5,7 @@ package simplesorts;
  * Worst and Average Case Time Complexity: O(n^2) There are N swaps maximum and N^2 comparisons for worst case. Preferred if swap time is costly.
  * Best Case Time Complexity: O(n^2).
  * Auxiliary Space: O(1)
+ * Space complexity: O(N)
  * Sorting In Place: Yes
  * Stable: No
 */

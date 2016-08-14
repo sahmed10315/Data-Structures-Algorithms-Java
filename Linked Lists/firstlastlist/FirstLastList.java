@@ -1,36 +1,46 @@
 package firstlastlist;
- 
+
+/* ADT class for a singly linked list containing a node for last item too.
+ * Search complexity : O(N)
+ * Insert/Delete at beginning: O(1)
+ * Insert/Delete at end: O(1) if node is known, O(N) if unknown
+ * Insert/Delete in middle: O(N) + O(1)
+ * Space: O(N)
+ * */
 public class FirstLastList {
 	private Node first; // ref to first link
-	private Node last;  
+	private Node last; // ref to last link
 
 	class Node {
 		public long dData; // data item
-		public Node next; // next link in list 
+		public Node next; // next link in list
 
 		public Node(long d) // constructor
 		{
 			dData = d;
 		}
- 
+
 		public void displayLink() // display this link
 		{
 			System.out.print(dData + " ");
-		} 
+		}
 	}
 
-	public FirstLastList() // constructor
+	/* Constructor */
+	public FirstLastList()
 	{
-		first = null; // no links on list yet
+		first = null;
 		last = null;
 	}
- 
-	public boolean isEmpty() // true if no links
+
+	/* Returns true if list is empty*/
+	public boolean isEmpty() 
 	{
 		return first == null;
 	}
- 
-	public void insertFirst(long dd) // insert at front of list
+
+	/* Insert at front of list. Two links have to be updated accordingly */
+	public void insertFirst(long dd) 
 	{
 		Node newLink = new Node(dd); // make new link
 
@@ -39,8 +49,11 @@ public class FirstLastList {
 		newLink.next = first; // newLink --> old first
 		first = newLink; // first --> newLink
 	}
- 
-	public void insertLast(long dd) // insert at end of list
+
+	/* Insert at last of link, since we keep the last node, 
+	 * we dont have to iterate to find it.
+	 */
+	public void insertLast(long dd) 
 	{
 		Node newLink = new Node(dd); // make new link
 		if (isEmpty()) // if empty list,
@@ -49,16 +62,18 @@ public class FirstLastList {
 			last.next = newLink; // old last --> newLink
 		last = newLink; // newLink <-- last
 	}
- 
-	public long deleteFirst() // delete first link
-	{ 
+
+	/* Delete first node */
+	public long deleteFirst()
+	{
 		long temp = first.dData;
 		if (first.next == null) // if only one item
 			last = null; // null <-- last
 		first = first.next; // first --> old next
 		return temp;
 	}
- 
+
+	/* Display the list from beginning */
 	public void displayList() {
 		System.out.print("List (first-->last): ");
 		Node current = first; // start at beginning
@@ -68,7 +83,7 @@ public class FirstLastList {
 			current = current.next; // move to next link
 		}
 		System.out.println("");
-	} 
+	}
 
 	public static void main(String[] args) { // make a new list
 		FirstLastList theList = new FirstLastList();
@@ -87,5 +102,5 @@ public class FirstLastList {
 		theList.deleteFirst();
 
 		theList.displayList(); // display again
-	}  
+	}
 }

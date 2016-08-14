@@ -1,21 +1,24 @@
 package foundation.elementaryalgorithms;
 
+/* Merge two sorted arrays in another array 
+ * Runtime complexity : O(A + B)
+ * */
 public class MergeArrays {
 
-	public static void merge(int[] arrayA, int sizeA, int[] arrayB, int sizeB, int[] arrayC) {
-		int aDex = 0, bDex = 0, cDex = 0;
+	public static void merge(int[] arrayA, int[] arrayB, int[] arrayC) {
+		int aIndex = 0, bIndex = 0, current = 0;
 
-		while (aDex < sizeA && bDex < sizeB) // neither array empty
-			if (arrayA[aDex] < arrayB[bDex])
-				arrayC[cDex++] = arrayA[aDex++];
+		while (aIndex < arrayA.length && bIndex < arrayB.length)
+			if (arrayA[aIndex] < arrayB[bIndex])
+				arrayC[current++] = arrayA[aIndex++];
 			else
-				arrayC[cDex++] = arrayB[bDex++];
+				arrayC[current++] = arrayB[bIndex++];
 
-		while (aDex < sizeA) // arrayB is empty,
-			arrayC[cDex++] = arrayA[aDex++]; // but arrayA isn't
+		while (aIndex < arrayA.length) // arrayB is empty,
+			arrayC[current++] = arrayA[aIndex++]; 
 
-		while (bDex < sizeB) // arrayA is empty,
-			arrayC[cDex++] = arrayB[bDex++]; // but arrayB isn't
+		while (bIndex < arrayB.length) // arrayA is empty,
+			arrayC[current++] = arrayB[bIndex++]; 
 	}
 
 	public static void main(String[] args) {
@@ -23,10 +26,9 @@ public class MergeArrays {
 		int[] arrayB = { 7, 14, 39, 55, 62, 74 };
 		int[] arrayC = new int[10];
 
-		merge(arrayA, arrayA.length, arrayB, arrayB.length, arrayC);
+		merge(arrayA, arrayB, arrayC);
 
 		for (int x : arrayC)
 			System.out.println(x);
 	}
-
 }

@@ -1,5 +1,9 @@
 package singlylinkedlist.sorted;
 
+/* Singly linked list to insert values in sorted order 
+ * Runtime complexity for insertion : O(N)
+ * Runtime complexity for deletion : O(1)
+ * */
 public class SortedList {
 	Node head; // head of list
 
@@ -14,25 +18,25 @@ public class SortedList {
 		}
 	}
 
-	/* function to insert a new_node in a list. */
+	/* function to insert a new_node in a sorted list. */
 	void sortedInsert(int key) {
-		Node new_node = new Node(key);
+		Node newNode = new Node(key);
 		Node current;
 
 		/* Special case for head node */
-		if (head == null || head.data >= new_node.data) {
-			new_node.next = head;
-			head = new_node;
+		if (head == null || head.data >= newNode.data) {
+			newNode.next = head;
+			head = newNode;
 		} else {
 
 			/* Locate the node before point of insertion. */
 			current = head;
 
-			while (current.next != null && current.next.data < new_node.data)
+			while (current.next != null && current.next.data < newNode.data)
 				current = current.next;
 
-			new_node.next = current.next;
-			current.next = new_node;
+			newNode.next = current.next;
+			current.next = newNode;
 		}
 	}
 
@@ -45,7 +49,7 @@ public class SortedList {
 		}
 	}
 
-	/* Drier function to test above methods */
+	/* Driver function to test above methods */
 	public static void main(String args[]) {
 		SortedList llist = new SortedList();
 		llist.sortedInsert(5);

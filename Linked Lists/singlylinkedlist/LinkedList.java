@@ -2,6 +2,14 @@ package singlylinkedlist;
 
 import java.util.EmptyStackException;
 
+/* ADT class for a singly linked list. Contains core algorithms for manipulation 
+ * Search complexity : O(N)
+ * Insert/Delete at beginning: O(1)
+ * Insert/Delete at end: O(1) if node is known, O(N) if unknown
+ * Insert/Delete in middle: O(N) + O(1)
+ * Space: O(N)
+ * */
+
 public class LinkedList {
 
 	private Node head; // head of list
@@ -15,6 +23,7 @@ public class LinkedList {
 		Node(int d) {
 			data = d;
 		}
+
 		public int getData() {
 			return data;
 		}
@@ -22,19 +31,16 @@ public class LinkedList {
 
 	/*
 	 * This function is in LinkedList class. Inserts a new Node at front of the
-	 * list. This method is defined inside LinkedList class shown above
+	 * list.
 	 */
 	public void insertFirst(int no) {
 		Node newNode = new Node(no);
-
 		newNode.next = head;
-
 		head = newNode;
 	}
 
 	/*
-	 * This function is in LinkedList class. Inserts a new node after the given
-	 * prev_node. This method is defined inside LinkedList class shown above
+	 * Inserts a new node after the given prevNode.
 	 */
 	public void insertAfter(Node prevNode, int newData) {
 		if (prevNode == null) {
@@ -43,9 +49,7 @@ public class LinkedList {
 		}
 
 		Node newNode = new Node(newData);
-
 		newNode.next = prevNode.next;
-
 		prevNode.next = newNode;
 	}
 
@@ -69,8 +73,8 @@ public class LinkedList {
 		last.next = newNode;
 	}
 
-	public Node deleteFirst() // delete first item
-	{
+	/* Delete first item from the list */
+	public Node deleteFirst() {
 		if (head == null)
 			throw new EmptyStackException();
 		Node temp = head;
@@ -80,7 +84,6 @@ public class LinkedList {
 
 	/* Given a key, deletes the first occurrence of key in linked list */
 	void deleteNode(int key) {
-		// Store head node
 		Node current = head, prev = null;
 
 		// If head node itself holds the key to be deleted
@@ -105,15 +108,13 @@ public class LinkedList {
 	}
 
 	/*
-	 * Given a reference (pointer to pointer) to the head of a list and a
-	 * position, deletes the node at the given position
+	 * Deletes the node at the given position
 	 */
 	void deleteNodeAtPos(int position) {
 		// If linked list is empty
 		if (head == null)
 			return;
 
-		// Store head node
 		Node temp = head;
 
 		// If head needs to be removed
@@ -174,6 +175,7 @@ public class LinkedList {
 		return false;
 	}
 
+	/* Recursive search for value x */
 	boolean searchRecursive(Node head, int x) {
 		// Base case
 		if (head == null)
@@ -187,8 +189,23 @@ public class LinkedList {
 		return searchRecursive(head.next, x);
 	}
 
-	public boolean isEmpty() // true if list is empty
-	{
+	/* Function to reverse the linked list */
+	Node reverse(Node node) {
+		Node prev = null;
+		Node current = node;
+		Node next = null;
+		while (current != null) {
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
+		}
+		node = prev;
+		return node;
+	}
+
+	/* Returns true if list is empty */
+	public boolean isEmpty() {
 		return (head == null);
 	}
 
@@ -203,19 +220,15 @@ public class LinkedList {
 	}
 
 	public static void main(String[] args) {
-		LinkedList theList = new LinkedList(); // make new list
-
+		LinkedList theList = new LinkedList();
 		theList.insertFirst(22); // insert four items
 		theList.insertFirst(44); // insert four items
-
 		theList.insertFirst(41); // insert four items
-
 		theList.insertFirst(39); // insert four items
 
 		theList.printList();
 
-		while (!theList.isEmpty()) // until it's empty,
-		{
+		while (!theList.isEmpty()) {
 			Node aLink = theList.deleteFirst(); // delete link
 			System.out.print("Deleted " + aLink.data); // display it
 			System.out.println("");

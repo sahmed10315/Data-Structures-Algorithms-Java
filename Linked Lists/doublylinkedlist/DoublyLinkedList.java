@@ -1,5 +1,10 @@
 package doublylinkedlist;
 
+/* ADT for a doubly linked list, where each node contains a pointer to the previous and next node.
+ * The delete operation in DLL is more efficient if pointer to the node to be deleted is given.
+ * In singly linked list, to delete a node, pointer to the previous node is needed. To get this previous node, sometimes the list is traversed. 
+ * In DLL, we can get the previous node using previous pointer.
+ *  */
 public class DoublyLinkedList {
 
 	static class Node {
@@ -18,8 +23,8 @@ public class DoublyLinkedList {
 		}
 	}
 
-	private Node first; 
-	private Node last; 
+	private Node first;
+	private Node last;
 
 	public DoublyLinkedList() // constructor
 	{
@@ -200,6 +205,5 @@ public class DoublyLinkedList {
 		theList.reverse();
 		theList.displayForward(); // display list forward
 
-		
-	}  
-}  
+	}
+}
