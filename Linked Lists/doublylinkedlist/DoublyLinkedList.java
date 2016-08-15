@@ -26,19 +26,19 @@ public class DoublyLinkedList {
 	private Node first;
 	private Node last;
 
-	public DoublyLinkedList() // constructor
-	{
+	/* constructor */
+	public DoublyLinkedList() {
 		first = null; // no items on list yet
 		last = null;
 	}
 
-	public boolean isEmpty() // true if no links
-	{
+	/* True if no links */
+	public boolean isEmpty() {
 		return first == null;
 	}
 
-	public void insertFirst(long dd) // insert at front of list
-	{
+	/* Insert at front of list */
+	public void insertFirst(long dd) {
 		Node newLink = new Node(dd); // make new link
 
 		if (isEmpty()) // if empty list,
@@ -49,8 +49,8 @@ public class DoublyLinkedList {
 		first = newLink; // first --> newLink
 	}
 
-	public void insertLast(long dd) // insert at end of list
-	{
+	/* Insert at end of list */
+	public void insertLast(long dd) {
 		Node newLink = new Node(dd); // make new link
 		if (isEmpty()) // if empty list,
 			first = newLink; // first --> newLink
@@ -61,8 +61,8 @@ public class DoublyLinkedList {
 		last = newLink; // newLink <-- last
 	}
 
-	public Node deleteFirst() // delete first link
-	{ // (assumes non-empty list)
+	/* Delete first link */
+	public Node deleteFirst() { // (assumes non-empty list)
 		Node temp = first;
 		if (first.next == null) // if only one item
 			last = null; // null <-- last
@@ -72,8 +72,8 @@ public class DoublyLinkedList {
 		return temp;
 	}
 
-	public Node deleteLast() // delete last link
-	{ // (assumes non-empty list)
+	/* Delete last link */
+	public Node deleteLast() { // (assumes non-empty list)
 		Node temp = last;
 		if (first.next == null) // if only one item
 			first = null; // first --> null
@@ -83,7 +83,7 @@ public class DoublyLinkedList {
 		return temp;
 	}
 
-	// insert dd just after key
+	/* insert dd just after key */
 	public boolean insertAfter(long key, long dd) { // (assumes non-empty list)
 		Node current = first; // start at beginning
 		while (current.dData != key) // until match is found,
@@ -109,7 +109,8 @@ public class DoublyLinkedList {
 		return true; // found it, did insertion
 	}
 
-	public Node deleteKey(long key) // delete item w/ given key
+	/* Delete node with given key */
+	public Node deleteKey(long key) 
 	{ // (assumes non-empty list)
 		Node current = first; // start at beginning
 		while (current.dData != key) // until match is found,
@@ -132,6 +133,7 @@ public class DoublyLinkedList {
 		return current; // return value
 	}
 
+	/* Display list forward */
 	public void displayForward() {
 		System.out.print("List (first-->last): ");
 		Node current = first; // start at beginning
@@ -143,6 +145,7 @@ public class DoublyLinkedList {
 		System.out.println("");
 	}
 
+	/* Display list backward */
 	public void displayBackward() {
 		System.out.print("List (last-->first): ");
 		Node current = last; // start at end
