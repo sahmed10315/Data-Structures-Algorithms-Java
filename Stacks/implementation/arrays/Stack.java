@@ -73,6 +73,10 @@ public class Stack<T> {
 		System.out.println("");
 	}
 
+	public int size() {
+		return top + 1;
+	}
+
 	public Iterator<T> iterator() {
 		Iterator<T> it = new Iterator<T>() {
 
@@ -102,20 +106,24 @@ public class Stack<T> {
 		theStack.push(40);
 		theStack.push(60);
 		theStack.push(80);
+		System.out.println("SIZE: " + theStack.size());
 		theStack.displayStack("Test: ");
-		
+
 		Iterator<Integer> itr = theStack.iterator();
-		while(itr.hasNext()) {
-	         Object element = itr.next();
-	         System.out.print(element + " ");
-	      }
+		while (itr.hasNext()) {
+			Object element = itr.next();
+			System.out.print(element + " ");
+		}
 		System.out.println("");
-		
+		System.out.println("SIZE: " + theStack.size());
+
 		while (!theStack.isEmpty()) {
 			long value = theStack.pop();
 			System.out.print(value); // display it
 			System.out.print(" ");
 		}
+		System.out.println("SIZE: " + theStack.size());
+
 		System.out.println();
 	}
 }
