@@ -12,6 +12,7 @@
 	<classpathentry kind="src" path="Heaps"/>
 	<classpathentry kind="src" path="Graphs"/>
 	<classpathentry kind="src" path="Weighted Graphs"/>
+	<classpathentry kind="src" path="Binary Tree"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
