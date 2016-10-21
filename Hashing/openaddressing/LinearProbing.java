@@ -1,8 +1,7 @@
 package openaddressing;
 
-//hash.java
-//demonstrates hash table with linear probing
-//to run this program: C:>java HashTableApp
+//LinearProbing.java
+//demonstrates hash table with linear probing 
 import java.io.*; 
 
 class HashTable {
@@ -71,7 +70,7 @@ class HashTable {
 			++hashVal; // go to next cell
 			hashVal %= arraySize; // wraparound if necessary
 		}
-		return null; // can't find item
+		return null; 
 	} 
 } 
 

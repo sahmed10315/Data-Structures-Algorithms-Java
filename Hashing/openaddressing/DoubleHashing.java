@@ -1,8 +1,7 @@
 package openaddressing;
 
-//hashDouble.java
-//demonstrates hash table with double hashing
-//to run this program: C:>java HashDoubleApp
+//DoubleHashing.java
+//demonstrates hash table with double hashing 
 import java.io.*;
 
 class HashTable {
@@ -66,8 +65,8 @@ class HashTable {
 			hashVal += stepSize; // add the step
 			hashVal %= arraySize; // for wraparound
 		}
-		return null; // can't find item
-	} // end delete()
+		return null; 
+	}  
 
 	public Integer find(int key) // find item with key 
 	{
