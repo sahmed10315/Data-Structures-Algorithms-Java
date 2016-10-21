@@ -2,8 +2,6 @@ package binarysearchtree;
 
 import java.util.Arrays;
 
-import binarytree.Node;
-
 public class BinarySearchTree {
 
 	/* Class containing left and right child of current node and key value */

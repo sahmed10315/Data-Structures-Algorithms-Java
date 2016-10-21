@@ -8,7 +8,7 @@ public class SortedList {
 	Node head; // head of list
 
 	/* Linked list Node */
-	static class Node {
+	public static class Node {
 		int data;
 		Node next;
 
@@ -19,7 +19,7 @@ public class SortedList {
 	}
 
 	/* function to insert a new_node in a sorted list. */
-	void sortedInsert(int key) {
+	public void sortedInsert(int key) {
 		Node newNode = new Node(key);
 		Node current;
 
@@ -41,7 +41,7 @@ public class SortedList {
 	}
 
 	/* Function to print linked list */
-	void printList() {
+	public void printList() {
 		Node temp = head;
 		while (temp != null) {
 			System.out.print(temp.data + " ");
