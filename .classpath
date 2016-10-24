@@ -9,12 +9,11 @@
 	<classpathentry kind="src" path="Binary Trees"/>
 	<classpathentry kind="src" path="Binary Search Trees"/>
 	<classpathentry kind="src" path="Hash Tables"/>
-	<classpathentry kind="src" path="Heaps"/>
 	<classpathentry kind="src" path="Graphs"/>
 	<classpathentry kind="src" path="Weighted Graphs"/>
 	<classpathentry kind="src" path="Binary Tree"/>
 	<classpathentry kind="src" path="Hashing"/>
-	<classpathentry kind="src" path="Binary Heap"/>
+	<classpathentry kind="src" path="Heaps"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
