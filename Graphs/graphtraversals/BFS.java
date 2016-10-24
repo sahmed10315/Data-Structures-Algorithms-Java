@@ -8,7 +8,7 @@ class Queue {
 	private int front;
 	private int rear;
 
-	public Queue() // constructor
+	public Queue() 
 	{
 		queArray = new int[SIZE];
 		front = 0;
@@ -37,7 +37,7 @@ class Queue {
 }
 
 class Vertex {
-	public char label; // label (e.g. 'A')
+	public char label; 
 	public boolean wasVisited;
 
 	public Vertex(char lab) // constructor
@@ -54,7 +54,7 @@ class Graph {
 	private int nVerts; // current number of vertices
 	private Queue theQueue;
 
-	public Graph() // constructor
+	public Graph()
 	{
 		vertexList = new Vertex[MAX_VERTS];
 		// adjacency matrix
@@ -86,7 +86,7 @@ class Graph {
 		theQueue.insert(0); // insert at tail
 		int v2;
 
-		while (!theQueue.isEmpty()) // until queue empty,
+		while (!theQueue.isEmpty())
 		{
 			int v1 = theQueue.remove(); // remove vertex at head
 			// until it has no unvisited neighbors
@@ -94,7 +94,7 @@ class Graph {
 				vertexList[v2].wasVisited = true; // mark it
 				displayVertex(v2); // display it
 				theQueue.insert(v2); // insert it
-			} // end while
+			}
 		}
 
 		// queue is empty, so we're done

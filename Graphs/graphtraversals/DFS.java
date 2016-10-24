@@ -7,7 +7,7 @@ class StackX {
 	private int[] st;
 	private int top;
 
-	public StackX() // constructor
+	public StackX()
 	{
 		st = new int[SIZE]; // make array
 		top = -1;
@@ -35,10 +35,10 @@ class StackX {
 }
 
 class Vertex {
-	public char label; // label (e.g. 'A')
+	public char label; 
 	public boolean wasVisited;
 
-	public Vertex(char lab) // constructor
+	public Vertex(char lab) 
 	{
 		label = lab;
 		wasVisited = false;
@@ -52,7 +52,7 @@ class Graph {
 	private int nVerts; // current number of vertices
 	private StackX theStack;
 
-	public Graph() // constructor
+	public Graph() 
 	{
 		vertexList = new Vertex[MAX_VERTS];
 		// adjacency matrix
