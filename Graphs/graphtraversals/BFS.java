@@ -1,5 +1,8 @@
 package graphtraversals;
 
+import directedgraphs.connectivity.Graph;
+import directedgraphs.connectivity.Vertex;
+
 //bfs.java
 //demonstrates breadth-first search
 class Queue {
