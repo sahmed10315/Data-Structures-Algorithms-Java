@@ -25,8 +25,8 @@ public class Dequeue {
 		this.maxSize = maxSize;
 		queArray = new long[maxSize];
 		nItems = 0;
-		left = 0;
-		right = maxSize - 1;
+		left = maxSize;
+		right = -1;
 	}
 
 	public void insertLeft(long j) {
@@ -53,8 +53,8 @@ public class Dequeue {
 		if (isEmpty())
 			throw new RuntimeException("It is empty");
 
-		long temp = queArray[left];
-		left++;
+		long temp = queArray[left++];
+		
 		if (left == maxSize - 1)
 			left = -1;
 		nItems--;
@@ -65,8 +65,8 @@ public class Dequeue {
 		if (isEmpty())
 			throw new RuntimeException("It is empty");
 
-		long temp = queArray[right];
-		right--;
+		long temp = queArray[right--];
+		
 		if (right < 0)
 			right = maxSize - 1;
 		nItems--;

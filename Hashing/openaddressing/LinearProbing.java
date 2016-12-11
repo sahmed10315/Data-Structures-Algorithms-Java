@@ -91,6 +91,5 @@ public class LinearProbing {
 			aInteger = new Integer(aKey);
 			theHashTable.insert(aInteger);
 		}
-	}  
- 
-}  
+	}
+}

@@ -106,7 +106,23 @@ public class LinkedList {
 		// Unlink the node from linked list
 		prev.next = current.next;
 	}
-
+	
+	void deleteNode2(int key) {
+		Node current = head;
+		
+		if(current.data == key && current != null){
+			head = current.next;
+			return;
+		}
+		
+		while(current.next != null) {
+			if(current.next.data == key) {
+				current.next = current.next.next;
+				return;
+			}
+			current = current.next;
+		}
+	}
 	/*
 	 * Deletes the node at the given position
 	 */

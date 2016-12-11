@@ -82,15 +82,11 @@ public class DynamicQueue{
         //copy elements to new array, copy from rear to front
         int tmpFront = front;
         int index = -1;
-        while(true){
-            newArr[++index] = this.queueArr[tmpFront];
-            tmpFront++;
+        while(currentSize != index+1){
+            newArr[++index] = this.queueArr[tmpFront++];
             if(tmpFront == this.queueArr.length){
                 tmpFront = 0;
-            }
-            if(currentSize == index+1){
-                break;
-            }
+            } 
         }
         //make new array as queue
         this.queueArr = newArr;

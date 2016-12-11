@@ -32,9 +32,11 @@ public class BinarySearchTree {
 		// val is greater than root's key
 		if (root.key > key)
 			return search(root.left, key);
+		else {
+			// val is less than root's key
+			return search(root.right, key);
+		}
 
-		// val is less than root's key
-		return search(root.right, key);
 	}
 
 	void insert(int key) {
@@ -116,34 +118,6 @@ public class BinarySearchTree {
 		return maxv;
 	}
 
-	/*
-	 * returns true if given search tree is binary search tree (efficient
-	 * version)
-	 */
-	boolean isBST() {
-		return isBSTUtil(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
-	}
-
-	/*
-	 * Returns true if the given tree is a BST and its values are >= min and <=
-	 * max.
-	 */
-	boolean isBSTUtil(Node node, int min, int max) {
-		/* an empty tree is BST */
-		if (node == null)
-			return true;
-
-		/* false if this node violates the min/max constraints */
-		if (node.key < min || node.key > max)
-			return false;
-
-		/*
-		 * otherwise check the subtrees recursively tightening the min/max
-		 * constraints
-		 */
-		// Allow only distinct values
-		return (isBSTUtil(node.left, min, node.key - 1) && isBSTUtil(node.right, node.key + 1, max));
-	}
 
 	/*
 	 * Returns true if given search tree is binary search tree (efficient
@@ -181,185 +155,6 @@ public class BinarySearchTree {
 		printSortedTree(arr, start * 2 + 2, end);
 	}
 
-	Node inOrderSuccessorContainingParent(Node root, Node n) {
-
-		if (n.right != null) {
-			return minValue1(n.right);
-		}
-
-		Node p = n.parent;
-		while (p != null && n == p.right) {
-			n = p;
-			p = p.parent;
-		}
-		return p;
-	}
-
-	Node inOrderSuccessor(Node root, Node n) {
-		// step 1 of the above algorithm
-		if (n.right != null)
-			return minValue1(n.right);
-
-		Node succ = null;
-
-		// Start from root and search for successor down the tree
-		while (root != null) {
-			if (n.key < root.key) {
-				succ = root;
-				root = root.left;
-			} else if (n.key > root.key)
-				root = root.right;
-			else
-				break;
-		}
-
-		return succ;
-	}
-
-	Node minValue1(Node node) {
-		Node current = node;
-
-		/* loop down to find the leftmost leaf */
-		while (current.left != null) {
-			current = current.left;
-		}
-		return current;
-	}
-
-	/*
-	 * The functions prints all the keys which in the given range [k1..k2]. The
-	 * function assumes than k1 < k2
-	 */
-	void printKeysInGvnRange(Node node, int k1, int k2) {
-
-		/* base case */
-		if (node == null) {
-			return;
-		}
-
-		/*
-		 * Since the desired o/p is sorted, recurse for left subtree first If
-		 * root->data is greater than k1, then only we can get o/p keys in left
-		 * subtree
-		 */
-		if (k1 < node.key) {
-			printKeysInGvnRange(node.left, k1, k2);
-		}
-
-		/* if root's data lies in range, then prints root's data */
-		if (k1 <= node.key && k2 >= node.key) {
-			System.out.print(node.key + " ");
-		}
-
-		/*
-		 * If root->data is smaller than k2, then only we can get o/p keys in
-		 * right subtree
-		 */
-		if (k2 > node.key) {
-			printKeysInGvnRange(node.right, k1, k2);
-		}
-	}
-
-	/*
-	 * A function that constructs Balanced Binary Search Tree from a sorted
-	 * array
-	 */
-	Node sortedArrayToBST(int arr[], int start, int end) {
-
-		/* Base Case */
-		if (start > end) {
-			return null;
-		}
-
-		/* Get the middle element and make it root */
-		int mid = (start + end) / 2;
-		Node node = new Node(arr[mid]);
-
-		/*
-		 * Recursively construct the left subtree and make it left child of root
-		 */
-		node.left = sortedArrayToBST(arr, start, mid - 1);
-
-		/*
-		 * Recursively construct the right subtree and make it right child of
-		 * root
-		 */
-		node.right = sortedArrayToBST(arr, mid + 1, end);
-
-		return node;
-	}
-
-	// This function converts a given Binary Tree to BST
-	void binaryTreeToBST(Node root) {
-		// base case: tree is empty
-		if (root == null)
-			return;
-
-		/*
-		 * Count the number of nodes in Binary Tree so that we know the size of
-		 * temporary array to be created
-		 */
-		int n = size(root);
-
-		// Create a temp array arr[] and store inorder traversal of tree in
-		// arr[]
-		int[] arr = new int[n];
-		int i = 0;
-		storeInorder(root, arr, i);
-
-		Arrays.sort(arr);
-
-		// Copy array elements back to Binary Tree
-		i = 0;
-		arrayToBST(arr, root, i);
-	}
-
-	/* Computes number of nodes in tree */
-	int size(Node node) {
-		if (node == null)
-			return 0;
-		else
-			return (size(node.left) + 1 + size(node.right));
-	}
-
-	/*
-	 * A helper function that stores inorder traversal of a tree rooted with
-	 * node
-	 */
-	void storeInorder(Node node, int inorder[], int index) {
-		// Base Case
-		if (node == null)
-			return;
-
-		/* first store the left subtree */
-		storeInorder(node.left, inorder, index);
-
-		/* Copy the root's data */
-		inorder[index++] = node.key;
-
-		/* finally store the right subtree */
-		storeInorder(node.right, inorder, index);
-	}
-
-	/*
-	 * A helper function that copies contents of arr[] to Binary Tree. This
-	 * functon basically does Inorder traversal of Binary Tree and one by one
-	 * copy arr[] elements to Binary Tree nodes
-	 */
-	void arrayToBST(int[] arr, Node root, int index) {
-		// Base Case
-		if (root == null)
-			return;
-
-		/* first update the left subtree */
-		arrayToBST(arr, root.left, index);
-
-		/* Now update root's data and increment index */
-		root.key = arr[index++];
-
-		/* finally update the right subtree */
-		arrayToBST(arr, root.right, index);
-	}
 
 	// Driver Program to test above functions
 	public static void main(String[] args) {

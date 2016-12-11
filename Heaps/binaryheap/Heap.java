@@ -7,8 +7,7 @@ import java.io.*;
 class Node {
 	private int iData; // data item (key)
 
-	public Node(int key) 
-	{
+	public Node(int key) {
 		iData = key;
 	}
 
@@ -85,7 +84,7 @@ public class Heap {
 			// shift child up
 			heapArray[index] = heapArray[largerChild];
 			index = largerChild; // go down
-		} // end while
+		} 
 		heapArray[index] = top; // root to index
 	}
 
@@ -102,8 +101,39 @@ public class Heap {
 		return true;
 	}
 
+	// Returns true if arr[i..n-1] represents a
+	// max-heap
+	boolean isHeap(int arr[]) {
+		// Start from root and go till the last internal
+		// node
+		for (int i = 0; i <= (arr.length - 2) / 2; i++) {
+			// If left child is greater, return false
+			if (arr[2 * i + 1] > arr[i])
+				return false;
+
+			// If right child is greater, return false
+			if (arr[2 * i + 2] > arr[i])
+				return false;
+		}
+		return true;
+	}
+
+	boolean isHeapRec(int arr[], int i, int n) {
+		// If a leaf node
+		if (i > (n - 2) / 2)
+			return true;
+
+		// If an internal node and is greater than its children, and
+		// same is recursively true for the children
+		if (arr[i] >= arr[2 * i + 1] && arr[i] >= arr[2 * i + 2] && isHeapRec(arr, 2 * i + 1, n)
+				&& isHeapRec(arr, 2 * i + 2, n))
+			return true;
+
+		return false;
+	}
+
 	public static void main(String[] args) throws IOException {
-		Heap theHeap = new Heap(31); 
+		Heap theHeap = new Heap(31);
 
 		theHeap.insert(70); // insert 10 items
 		theHeap.insert(40);
